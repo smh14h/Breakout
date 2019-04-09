@@ -28,7 +28,7 @@ import GameplayKit
 
 let BallCategoryName = "ball"
 let PaddleCategoryName = "paddle"
-let BlockCategoryName = "block"
+let BlockCategoryName = "lamp"
 let GameMessageName = "gameMessage"
 let BallCategory   : UInt32 = 0x1 << 0
 let BottomCategory : UInt32 = 0x1 << 1
@@ -79,14 +79,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     physicsWorld.contactDelegate = self
     
     // 1
-    let numberOfBlocks = 24
-    let blockWidth = SKSpriteNode(imageNamed: "block").size.width
+    let numberOfBlocks = 26
+    let blockWidth = SKSpriteNode(imageNamed: "lamp").size.width
     let totalBlocksWidth = blockWidth * CGFloat(13)
     // 2
     let xOffset = (frame.width - totalBlocksWidth) / 2
     // 3
     for i in 0..<numberOfBlocks {
-        let block = SKSpriteNode(imageNamed: "block.png")
+        let block = SKSpriteNode(imageNamed: "lamp.jpeg")
         
         if(i < 13) {
             block.position = CGPoint(x: xOffset + CGFloat(CGFloat(i) + 0.5) * blockWidth,
