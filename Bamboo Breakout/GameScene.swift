@@ -81,14 +81,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // 1
     let numberOfBlocks = 8
     let blockWidth = SKSpriteNode(imageNamed: "block").size.width
-    let totalBlocksWidth = blockWidth * CGFloat(numberOfBlocks)
+    let totalBlocksWidth = blockWidth * CGFloat(13)
     // 2
     let xOffset = (frame.width - totalBlocksWidth) / 2
     // 3
     for i in 0..<numberOfBlocks {
         let block = SKSpriteNode(imageNamed: "block.png")
-        block.position = CGPoint(x: xOffset + CGFloat(CGFloat(i) + 0.5) * blockWidth,
-                                 y: frame.height * 0.9)
+        
+        if(i < 13) {
+            block.position = CGPoint(x: xOffset + CGFloat(CGFloat(i) + 0.5) * blockWidth,
+                                     y: frame.height * 0.9)
+        } else {
+            block.position = CGPoint(x: xOffset + CGFloat(CGFloat(i - 13) + 0.5) * blockWidth,
+                                     y: frame.height * 0.7)
+        }
+
         block.physicsBody = SKPhysicsBody(rectangleOf: block.frame.size)
         block.physicsBody!.allowsRotation = false
         block.physicsBody!.friction = 0.0
