@@ -79,7 +79,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     physicsWorld.contactDelegate = self
     
     // 1
-    let numberOfBlocks = 8
+    let numberOfBlocks = 9
     let blockWidth = SKSpriteNode(imageNamed: "block").size.width
     let totalBlocksWidth = blockWidth * CGFloat(numberOfBlocks)
     // 2
